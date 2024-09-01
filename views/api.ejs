@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Free API request tester and HTTP request maker online. Test API requests, JSON, and REST APIs with our online API testing tool, similar to Postman.">
+    <meta name="keywords"
+        content="http request maker online, api request tester, api request tool, online api tester postman, test api request, make api calls online, free api tester, free api testing tool, api request generator, get request maker, json request test, json api tester, online api tester, rest api tester online, rest api tester tool, postman online api test, online api tester, online api testing, json online api test, online api test endpoint, online api testing tools, online api testing site, free online api test, test soap api online, online fetch api test, test an api online, online api tester postman, online api endpoint, online rest api tester, online api test free, free online api, tools like postman online, online api tester like postman, online api testing like postman, postman alternatives">
+    <title>Free Online API Request Tester | HTTP Request Maker | Postman Alternatives</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/api-files/api.css">
+</head>
+
+
+
+<body>
+
+    <%- include('partials/header') %>
+
+
+        <main>
+
+            <div class="sidenav sticky">
+               
+
+                <span class="sidenav-header">
+                    <h2>History</h2>
+                    <input type="search" placeholder="search" id="search-history">
+                </span>
+<div class="history-container">
+    
+</div>
+            </div>
+
+            <div class="api-section">
+                <section id="request-builder" class="border p-3 rounded">
+
+                    <form id="api-form">
+
+                        <div class="form-group">
+
+                            <div
+                                style="display: flex; gap: 5px; align-items: center; justify-content: center; flex-direction: row; ">
+
+                                <select id="method" name="method" class="form-control" style="max-width: fit-content; ">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+
+                                <input  required type="text" id="url" name="url" class="form-control"
+                                    placeholder="https://api.example.com/endpoint" style="width: 90%;">
+                                <button type="submit" class="btn">
+                                    <i class="fa-solid fa-paper-plane" style="transform: rotate(45deg);"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tabs for query parameters, headers, and body -->
+                        <ul class="nav nav-tabs" id="requestTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="query-tab" data-toggle="tab" href="#query-params"
+                                    role="tab">Query Params</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="headers-tab" data-toggle="tab" href="#headers"
+                                    role="tab">Headers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="body-tab" data-toggle="tab" href="#body" role="tab">Body</a>
+                            </li>
+
+
+                        </ul>
+
+                        <!-- Tab content -->
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="query-params" role="tabpanel">
+                                <div id="query-params-container" class="dynamic-fields">
+                                    <div class="field-item" >
+                                        <input type="text" class="form-control field-key" placeholder="Param Key">
+                                        <input type="text" class="form-control field-value" placeholder="Param Value">
+                                        <button type="button" class="btn btn-danger remove-field"
+                                            style="display: none;">
+                                            <i class="fa-solid fa-trash" style="color: white;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="button" id="add-query-param" class="btn  mt-2"
+                                    style="background-color: black; color: white;">
+                                    <i class="fa fa-plus" style="color: white;"></i>
+                                </button>
+                            </div>
+                            <div class="tab-pane fade" id="headers" role="tabpanel">
+                                <div id="headers-container" class="dynamic-fields">
+                                    <div class="field-item">
+                                        <input type="text" class="form-control field-key" placeholder="Header Key">
+                                        <input type="text" class="form-control field-value " placeholder="Header Value">
+                                        <button type="button" class="btn btn-danger remove-field"
+                                            style="display: none;">
+                                            <i class="fa-solid fa-trash" style="color: white;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="button" id="add-header" class="btn  mt-2"
+                                    style="background-color: black; color: white;">
+                                    <i class="fa fa-plus" style="color: white;"></i>
+                                </button>
+                            </div>
+                            <div class="tab-pane fade" id="body" role="tabpanel">
+                                <div class="form-group">
+                                    <label for="body-input">Request Body (JSON):</label>
+                                    <textarea  style="text-transform: none;" id="body-input" name="body" class="form-control"
+                                        placeholder='{"key": "value"}'></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </section>
+                <div class="center">
+
+                    <div id="loading-indicator" style="position: absolute; z-index: 999999999;">
+
+
+                        <div class="bounce-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <section id="response" class=" border p-3 rounded ">
+
+                    <!-- Tabs for switching between response and code snippet -->
+                    <ul class="nav nav-tabs" id="responseTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="response-tab" data-toggle="tab" href="#response-content"
+                                role="tab">Response</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="code-tab" data-toggle="tab" href="#code-content" role="tab">Code</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content mt-3">
+                        <!-- Response tab content -->
+                        <div class="tab-pane fade show active" id="response-content" role="tabpanel">
+                            <div id="response-details"></div>
+                            <pre id="response-output" class="language-json"></pre>
+                        </div>
+
+                        <!-- Code tab content -->
+                        <div class="tab-pane fade" id="code-content" role="tabpanel">
+                            <div class="form-group">
+                                <label for="language">Select Language:</label>
+                                <select id="language" class="form-control">
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="nodejs">Node.js</option>
+                                    <option value="java">Java</option>
+                                    <option value="csharp">C#</option>
+                                    <option value="php">PHP</option>
+                                    <option value="ruby">Ruby</option>
+                                    <option value="go">Go</option>
+                                    <option value="swift">Swift</option>
+                                    <option value="curl">cURL</option>
+                                </select>
+                            </div>
+                            <div class="copy-btn" onclick="copycode()">
+                                <i class="fa-solid fa-copy" id="copy-btn-"></i>
+                            </div>
+                            <pre id="code-output" class="language-python"></pre>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <br>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+       <script src="api-files/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+
+    <style>
+    
+
+     
+        .rotating-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 60px;
+            animation: rotate 1.5s infinite linear;
+            height: 60px;
+        }
+
+        .rotating-dots div {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border-radius: 50%;
+            animation: rotate 1.5s infinite linear;
+        }
+
+        .rotating-dots div:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .rotating-dots div:nth-child(2) {
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            animation-delay: -0.5s;
+        }
+
+        .rotating-dots div:nth-child(3) {
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -1s;
+        }
+
+        .rotating-dots div:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            animation-delay: -1.5s;
+        }
+
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+    <div class="rotating-dots">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+

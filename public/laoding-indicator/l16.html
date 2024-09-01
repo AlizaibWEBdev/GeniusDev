@@ -1,0 +1,76 @@
+
+    <style>
+        
+       
+       
+        .spinning-lines {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .spinning-lines div {
+            position: absolute;
+            width: 6px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 10px;
+            animation: spin 1.5s infinite linear, fade 1.5s infinite ease-in-out;
+        }
+
+        .spinning-lines div:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .spinning-lines div:nth-child(2) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            animation-delay: -0.75s;
+        }
+
+        .spinning-lines div:nth-child(3) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            animation-delay: -1.5s;
+        }
+
+        .spinning-lines div:nth-child(4) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(270deg);
+            animation-delay: -2.25s;
+        }
+
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fade {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+    </style>
+
+
+    <div class="spinning-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+

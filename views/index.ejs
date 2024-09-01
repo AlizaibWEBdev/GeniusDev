@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    
+    <title>GeniusDev - Developer Tools & Resources</title>
+</head>
+<style>
+    .hero-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 60px;
+    min-height: 70vh;
+    background:white;
+    color: #ffffff;
+}
+
+
+
+.hero-content h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.cta-button i {
+    margin-left: 10px;
+    color: white;
+}
+
+/* Hero Image */
+.hero-image img {
+    width: 100%;
+  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .hero-image{
+        width: 100vw;
+     
+        top: 0px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0px !important; 
+        right: 0px;
+ 
+    
+        
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+    
+
+
+    
+}
+.hero-image img{
+    transform: scaleX(-1);
+}
+.hero-image{
+    position: relative;
+    top: -80px;
+    left: 80px;
+    animation: updown 5s linear infinite forwards;
+}
+
+@keyframes updown {
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(30px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+
+</style>
+<body>
+  
+
+
+    <%- include('partials/header') %>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Empowering Developers with Essential Tools</h1>
+            <p>Discover powerful tools and resources to streamline your development process. Build faster, code smarter, and elevate your projects with GeniusDev.</p>
+            <a href="#tools" class="cta-button">Explore Tools <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-image">
+            <img src="hero.png" alt="Developer Tools">
+        </div>
+    </div>
+
+
+    
+
+
+    <%- include('partials/tools') %>
+    <%- include('partials/footer') %>
+</body>
+</html>

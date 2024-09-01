@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Minifier - Compress JavaScript Code Online</title>
+    <meta name="description" content="Use our JavaScript Minifier tool to compress JavaScript code online. Easily minify JavaScript, CSS, and HTML for better performance.">
+    <meta name="keywords" content="JavaScript minifier, compress JavaScript code, minify JavaScript, online JavaScript minifier, JavaScript compression, minify code online, JavaScript optimization">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="minifier.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+</head>
+<style>
+    /* Additional content styles */
+.additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 100vw;
+    gap: 20px;
+}
+
+.additional-content .new-text-heading,
+.additional-content .new-additional-info {
+    width: calc(100%/2 - 20px);
+    max-width: 500px;
+    min-height: 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    min-width: 320px;
+    border-radius: 10px;
+    background-color: #f9f9f9; /* Optional: Add background color for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for a subtle effect */
+}
+
+.additional-content h2,
+.additional-content h3 {
+    font-weight: 600;
+    color: #333; /* Adjust text color for better readability */
+}
+
+.additional-content p,
+.additional-content ul,
+.additional-content li {
+    font-weight: 500;
+    color: #333; /* Adjust text color for better readability */
+}
+
+.additional-content ul {
+    list-style-type: disc;
+    padding-left: 20px; /* Adjust padding for better list visibility */
+}
+
+</style>
+<body>
+    <%- include('partials/header') %>
+    
+    <div class="center">
+        <div class="minifier-container">
+            <div class="text-heading">
+                <h1>JavaScript Minifier</h1>
+                <h2>Efficiently Minify Your JavaScript Code Online</h2>
+            </div>
+            <div class="input-center">
+                <div class="input">
+                    <textarea id="jsInput" placeholder="Paste your JavaScript code here..."></textarea>
+                    <button id="minifyJsBtn">Minify</button>
+                </div>
+                <textarea id="jsOutput" placeholder="Minified JavaScript code will appear here..." readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- New content added here -->
+    <section class="additional-content">
+        <div class="new-text-heading">
+            <h2>Why Use a JavaScript Minifier?</h2>
+            <p>Our JavaScript Minifier tool helps you compress your JavaScript code to reduce file size and improve website performance. By removing unnecessary spaces, comments, and line breaks, our tool enhances your code's efficiency and load time.</p>
+        </div>
+        <div class="new-additional-info">
+            <h3>Benefits of JavaScript Minification</h3>
+            <ul>
+                <li>Reduce JavaScript file size for faster page loads.</li>
+                <li>Minify JavaScript, CSS, and HTML for comprehensive optimization.</li>
+                <li>Compress JavaScript code online with ease.</li>
+                <li>Improve website speed and user experience.</li>
+            </ul>
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    
+    <%- include('partials/footer') %>
+</body>
+
+<script>
+    document.getElementById('minifyJsBtn').addEventListener('click', function () {
+        const jsInput = document.getElementById('jsInput').value;
+        const minifiedJs = jsInput
+            .replace(/\s+/g, ' ') 
+            .replace(/\s*{\s*/g, '{') 
+            .replace(/\s*}\s*/g, '}') 
+            .replace(/\s*:\s*/g, ':') 
+            .replace(/\s*;\s*/g, ';') 
+            .replace(/;\s*}/g, '}')   
+            .replace(/\/\*.*?\*\//g, '') 
+            .replace(/\/\/.*(?=[\n\r])/g, ''); 
+        document.getElementById('jsOutput').value = minifiedJs;
+    });
+</script>
+
+</html>

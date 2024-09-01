@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Minifier - Compress CSS File Size Online</title>
+    <meta name="description" content="Use our CSS Minifier tool to compress CSS file size online. Easily minify CSS, JavaScript, and HTML for better performance.">
+    <meta name="keywords" content="CSS minifier, compress CSS file size, minify CSS code, CSS code minifier, online CSS minifier, compress CSS online, minify CSS JavaScript HTML">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="minifier.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+</head>
+<style>
+    /* Additional content styles */
+.additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 100vw;
+    gap: 20px;
+}
+
+.additional-content .new-text-heading,
+.additional-content .new-additional-info {
+    width: calc(100%/2 - 20px);
+    max-width: 500px;
+    min-height: 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    min-width: 320px;
+    border-radius: 10px;
+    background-color: #f9f9f9; /* Optional: Add background color for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for a subtle effect */
+}
+
+.additional-content h2,
+.additional-content h3 {
+    font-weight: 600;
+    color: #333; /* Adjust text color for better readability */
+}
+
+.additional-content p,
+.additional-content ul,
+.additional-content li {
+    font-weight: 500;
+    color: #333; /* Adjust text color for better readability */
+}
+
+.additional-content ul {
+    list-style-type: disc;
+    padding-left: 20px; /* Adjust padding for better list visibility */
+}
+
+</style>
+<body>
+    <%- include('partials/header') %>
+   
+    <div class="center">
+        <div class="minifier-container">
+            <div class="text-heading">
+                <h1>CSS Minifier</h1>
+                <h2>Efficiently Minify Your CSS Code Online</h2>
+            </div>
+            <div class="input-center">
+                <div class="input">
+                    <textarea id="cssInput" placeholder="Paste your CSS code here..."></textarea>
+                    <button id="minifyCssBtn">Minify</button>
+                </div>
+                <textarea id="cssOutput" placeholder="Minified CSS code will appear here..." readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!-- New content added here -->
+    <section class="additional-content">
+        <div class="new-text-heading">
+            <h2>Why Use a CSS Minifier?</h2>
+            <p>Our CSS Minifier tool helps you compress CSS file size for faster loading times. Minify CSS, JavaScript, and HTML easily to enhance your website's performance. Whether you're optimizing for SEO or improving load times, our tool is designed to meet your needs.</p>
+        </div>
+        <div class="new-additional-info">
+            <h3>Benefits of CSS Minification</h3>
+            <ul>
+                <li>Reduce CSS file size and improve website speed.</li>
+                <li>Minify CSS along with JavaScript and HTML for comprehensive optimization.</li>
+                <li>Compress CSS online with our easy-to-use tool.</li>
+                <li>Enhance website performance and user experience.</li>
+            </ul>
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    
+    <%- include('partials/footer') %>
+</body>
+
+<script>
+    document.getElementById('minifyCssBtn').addEventListener('click', function () {
+        const cssInput = document.getElementById('cssInput').value;
+        const minifiedCss = cssInput
+            .replace(/\s+/g, ' ') 
+            .replace(/\s*{\s*/g, '{') 
+            .replace(/\s*}\s*/g, '}') 
+            .replace(/\s*:\s*/g, ':') 
+            .replace(/\s*;\s*/g, ';') 
+            .replace(/;\s*}/g, '}'); 
+        document.getElementById('cssOutput').value = minifiedCss;
+    });
+</script>
+
+</html>

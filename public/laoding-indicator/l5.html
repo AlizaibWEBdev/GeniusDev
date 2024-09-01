@@ -1,0 +1,47 @@
+
+  
+     <style>
+
+       
+        .dots-loader {
+            display: flex;
+            justify-content: space-between;
+            width: 80px;
+        }
+
+        .dots-loader div {
+            width: 16px;
+            height: 16px;
+            background-color: #3498db;
+            border-radius: 50%;
+            animation: spin 1.2s infinite ease-in-out;
+        }
+
+        .dots-loader div:nth-child(1) {
+            animation-delay: -0.4s;
+        }
+
+        .dots-loader div:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+
+        @keyframes spin {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-24px);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+    <div class="dots-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore dynamic and interactive animated backgrounds with code examples. Learn and preview various animations right on this page.">
+    <meta name="keywords" content="animated backgrounds, code examples, interactive animations, web design, HTML, CSS">
+    <link rel="stylesheet" href="style.css">
+    <title>Dynamic Animated Backgrounds with Code Examples</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .code-display button {
+        padding: 5px;
+        color: white;
+        border-radius: 10px;
+        background-color: black;
+        border: none;
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+
+    }
+
+    /* Container for iframe and code sections */
+    #content-container {
+        max-width: 1200px;
+        /* Adjust max width as needed */
+        margin: 0 auto;
+        padding: 20px;
+
+    }
+
+    /* Responsive iframe styling */
+    .dynamic-iframe {
+        display: block;
+        width: 100%;
+        height: 600px;
+        /* Adjust height as needed */
+        margin: 20px 0;
+        border: 2px solid black;
+        overflow: hidden !important;
+    }
+
+    /* Code display section */
+    .code-display {
+        padding: 20px;
+        position: relative;
+        background-color: #f0f0f0;
+        border: 1px solid #000000;
+        margin-top: 20px;
+        border-radius: 5px;
+        height: 500px;
+        max-width: 100%;
+        overflow-x: auto;
+        cursor: text;
+    }
+
+    .code-display h2 {
+        margin-top: 0;
+        font-size: 1.5em;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        /* Ensures long lines wrap */
+        overflow-x: auto;
+        /* Allows horizontal scrolling for long lines */
+        margin: 0;
+        font-size: 16px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    code {
+        display: block;
+        padding: 10px;
+
+        font-family: monospace;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .dynamic-iframe {
+            height: 400px;
+            /* Adjust height for smaller screens */
+        }
+
+        .code-display {
+            padding: 10px;
+        }
+
+        .code-display h2 {
+            font-size: 1.2em;
+        }
+
+        pre {
+            font-size: 0.9em;
+        }
+    }
+</style>
+
+<body>
+    <%- include('partials/header') %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1> Dynamic Animated CSS Only Backgrounds</h1>
+
+        <!-- Container for dynamically inserted iframes and code sections -->
+        <div id="content-container"></div>
+
+        
+            <%- include('partials/footer') %>
+
+                <script>
+                    // Function to dynamically add iframe and code sections
+                    async function loadContent(contents) {
+                        const container = document.getElementById('content-container');
+                        container.innerHTML = ''; // Clear existing content
+
+                        for (const { iframeSrc, codeUrl } of contents) {
+                            // Create and insert the iframe
+                            const iframe = document.createElement('iframe');
+                            iframe.src = iframeSrc;
+                            iframe.frameBorder = '0';
+                            iframe.className = 'dynamic-iframe';
+
+                            // Create the section for displaying code
+                            const codeSection = document.createElement('section');
+                            codeSection.className = 'code-display';
+
+                            const copyCode = document.createElement('button');
+                            copyCode.textContent = 'copy';
+                            copyCode.addEventListener("click", (e) => {
+                                window.navigator.clipboard.writeText(e.target.parentElement.getElementsByTagName("pre")[0].innerText).then(()=>{
+                                    alert("code cpied")
+                                })
+                                
+
+                            })
+                            const pre = document.createElement('pre');
+                            pre.id = `code-content-${Math.random().toString(36).substr(2, 9)}`;
+                            const code = document.createElement('code');
+                            code.textContent = 'Loading...';
+                            pre.appendChild(code);
+
+                            codeSection.appendChild(copyCode);
+                            codeSection.appendChild(pre);
+
+                            // Insert iframe and code section into the content container
+                            container.appendChild(iframe);
+                            container.appendChild(codeSection);
+
+                            // Fetch and display the code
+                            try {
+                                const response = await fetch(codeUrl);
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                const codeText = await response.text();
+                                document.getElementById(pre.id).textContent = codeText;
+                            } catch (error) {
+                                console.error('Error fetching code:', error);
+                                document.getElementById(pre.id).textContent = 'Error loading code';
+                            }
+                        }
+                    }
+
+                    // Example usage with multiple URLs
+                    loadContent([
+                        { iframeSrc: '/cssaanimationbg/bg1.html', codeUrl: '/cssaanimationbg/bg1.html' },
+                        { iframeSrc: '/cssaanimationbg/bg2.html', codeUrl: '/cssaanimationbg/bg2.html' },
+                        { iframeSrc: '/cssaanimationbg/bg3.html', codeUrl: '/cssaanimationbg/bg3.html' },
+                        { iframeSrc: '/cssaanimationbg/bg4.html', codeUrl: '/cssaanimationbg/bg4.html' },
+                        { iframeSrc: '/cssaanimationbg/bg5.html', codeUrl: '/cssaanimationbg/bg5.html' },
+                        { iframeSrc: '/cssaanimationbg/bg6.html', codeUrl: '/cssaanimationbg/bg6.html' },
+                        { iframeSrc: '/cssaanimationbg/bg7.html', codeUrl: '/cssaanimationbg/bg7.html' },
+                        { iframeSrc: '/cssaanimationbg/bg8.html', codeUrl: '/cssaanimationbg/bg8.html' },
+                        { iframeSrc: '/cssaanimationbg/bg9.html', codeUrl: '/cssaanimationbg/bg9.html' },
+                        { iframeSrc: '/cssaanimationbg/bg10.html', codeUrl: '/cssaanimationbg/bg10.html' },
+                        { iframeSrc: '/cssaanimationbg/bg11.html', codeUrl: '/cssaanimationbg/bg11.html' },
+
+
+
+                    ]);
+
+
+
+
+                </script>
+</body>
+
+</html>

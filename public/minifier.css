@@ -1,0 +1,74 @@
+.text-hading {
+    text-align: center;
+}
+
+.minifier-container textarea {
+    width: 90vw;
+    max-width: 550px;
+    height: 70vh;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 10px;
+    min-width: 310px;
+    padding: 5px;
+    overflow-y: scroll;
+    border: 1px solid #b3831c;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 5vmax;
+    
+    margin-top: 40px;
+
+}
+
+
+
+@media only screen and (max-width:1200px) {
+    .minifier-container textarea{
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width:900px) {
+    .input-center {
+        flex-direction: column;
+    }
+    .minifier-container textarea{
+        max-width: 700px;
+    }
+    .input-center .input button {
+        position: static !important;
+        margin: 10px;
+    }
+}
+
+.input-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.input-center .input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.input-center .input button {
+    width: 100px;
+    padding: 10px;
+    position: absolute;
+    bottom: -45px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    left: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Glowing Waves Background</title>
+    <style>
+        /* Unique class for the dark background with glowing waves animation */
+        .waves-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+body{
+    overflow-x: hidden;
+}
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90, 142, 255, 0.745) 20%, rgb(15, 23, 29) 60%);
+            opacity: 0.5;
+            transform: rotate(45deg);
+            animation: moveWaves 10s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-duration: 15s;
+            opacity: 0.4;
+        }
+
+        .wave:nth-child(3) {
+            animation-duration: 20s;
+            opacity: 0.3;
+        }
+
+        @keyframes moveWaves {
+            0% {
+                transform: translateX(-50%) rotate(45deg);
+            }
+            50% {
+                transform: translateX(50%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(45deg);
+            }
+        }
+
+        /* Additional styling for your content */
+        .content {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 97.5vw;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            height: 95vh;
+            backdrop-filter: blur(5px);
+            background-color: #000000b5;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="waves-background">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <div class="content">
+        <h1>Glowing Waves Background</h1>
+        <p>Experience the flowing waves of light against a dark background.</p>
+    </div>
+</body>
+</html>

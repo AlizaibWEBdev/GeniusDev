@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert JSON files to CSV format quickly and easily with our free online tool. Upload your JSON file and get a downloadable CSV file.">
+  <meta name="keywords" content="JSON to CSV converter, JSON file conversion, free CSV tool, JSON to CSV">
+  <meta name="author" content="Your Name">
+  <title>JSON to CSV Converter - Free Online Tool</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Android Chrome Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<style>
+  .converter-section {
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .converter-section h1 {
+    font-size: 4vmax;
+    margin-bottom: 50px;
+  }
+
+  .converter-section form {
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+gap: 20px;
+    flex-direction: column;
+    min-height: 200px;
+    padding: 10px;
+    background-color: white;
+  }
+#downloadLink{
+  padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+  .converter-section form button,.button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+
+  }
+
+  .converter-section input {
+    position: absolute;
+    transform: translateX(70px) translateY(-50px);
+    opacity: 0;
+
+
+  }
+  #intro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+  }
+  #intro section {
+    width: calc(95%/2);
+    background-color: white;
+    min-width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  #intro section h2{
+    margin-bottom: 20px;
+    border-bottom: 5px solid #b3831c;
+
+  }
+
+  #intro section li strong {
+    margin-right: 10px;
+  }
+.result-section{
+  padding: 10px;
+  background-color: white;
+ text-align: center;
+ width: 100vw;
+ max-width: 800px;
+ margin: auto;
+ border-radius: 10px;
+ min-height: 100px;
+}
+</style>
+<body>
+  <%- include('partials/header') %>
+  
+
+  <main>
+    <section class="converter-section">
+      
+   <div class="center" style="flex-direction: column; text-align: center; padding: 20x;">
+    <h1>JSON to CSV Converter</h1>
+    <p style="width: 90%;">Welcome to our free JSON to CSV converter tool. Easily convert your JSON files into CSV format with just a few clicks.</p>
+
+   </div>
+<br>
+      <form id="jsonForm" action="/json-to-csv" method="post" enctype="multipart/form-data">
+        <h2>Upload Your JSON File</h2>
+        <input type="file" name="jsonFile" accept=".json" required>
+        <button type="button">upload &uparrow;</button>
+        <br>
+        <p id="filename"></p>
+        <br>
+        <button  style="display: none;" type="submit">Convert JSON to CSV</button>
+
+      </form>
+      <script defer>
+        document.getElementsByTagName("input")[0].addEventListener("change", (e) => {
+
+          if (e.target.value) {
+            document.getElementById("filename").innerText = e.target.value.slice(0, 35) + (e.target.value.length > 35 ? "..." : "");
+            document.getElementsByTagName("button")[1].style.display = "block"
+          }
+
+        })
+        document.getElementsByTagName("button")[0].addEventListener("click", () => {
+          console.log("ss");
+
+          document.getElementsByTagName("input")[0].click();
+        })
+      </script>
+    </section>
+
+    <section class="result-section">
+      <h2>Conversion Result</h2>
+      <p>Once the conversion is complete, a download link will appear here for you to download your CSV file.</p>
+      <a id="downloadLink" href="#" style="display: none;">Download CSV</a>
+    </section>
+  </main>
+
+  
+  <%- include('partials/footer') %>
+
+  <script>
+    document.getElementById('jsonForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const fileInput = document.querySelector('input[name="jsonFile"]');
+  const file = fileInput.files[0];
+  
+  // Check if a file is selected
+  if (!file) {
+    alert('Please select a file.');
+    return;
+  }
+  
+  // Check file size (1 MB = 1,000,000 bytes)
+  if (file.size > 1000000) {
+    alert('The file size exceeds 1 MB. Please choose a smaller file.');
+    return;
+  }
+  
+  const formData = new FormData(this);
+  try {
+    const response = await fetch('/json-to-csv', {
+      method: 'POST',
+      body: formData
+    });
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = url;
+    downloadLink.download = 'result.csv';
+    downloadLink.style.display = 'block';
+    downloadLink.textContent = 'Download CSV';
+  } catch (error) {
+    document.getElementById('downloadLink').textContent = `Error: ${error.message}`;
+  }
+});
+
+  </script>
+</body>
+</html>

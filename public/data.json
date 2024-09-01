@@ -1,0 +1,76 @@
+[
+    {
+        "title": "Free Online API Request Tester",
+        "description": "Test and make HTTP requests online, similar to Postman.",
+        "favicon": "<i class='fa-solid fa-network-wired'></i>",
+        "compleated": true
+    },
+   
+   
+    {
+        "title": "Keyword Extracts Tool",
+        "description": "Extracts and analyzes keywords from websites, undersatnd the ranking keywords of webiste ",
+        "favicon": "<i class='fa-solid fa-tag'></i>",
+        "compleated": true
+    },
+   
+    {
+        "title": "Color Scheme & Palette Generator",
+        "description": "Generates color schemes based on user-selected colors for web design and Generates color palettes",
+        "favicon": "<i class='fa-solid fa-palette'></i>",
+        "compleated": true
+    },
+    
+    {
+        "title": "HTML Minifier",
+        "description": "Compresses HTML files by removing unnecessary spaces, comments, and other elements to reduce file size.",
+        "favicon": "<i class='fa-brands fa-html5'></i>",
+        "compleated": true
+    },
+    {
+        "title": "CSS Minifier",
+        "description": "Compresses CSS files to reduce file size and improve website load times.",
+        "favicon": "<i class='fa-brands fa-css3-alt'></i>",
+        "compleated": true
+    },
+    {
+        "title": "JavaScript Minifier",
+        "description": "Minifies JavaScript files to reduce file size and improve load times.",
+        "favicon": "<i class='fa-solid fa-code'></i>",
+        "compleated": true
+    },
+ 
+    {
+        "title": "JSON to CSV Converter",
+        "description": "Converts JSON data into CSV format for easier data analysis and reporting.",
+        "favicon": "<i class='fa-solid fa-table'></i>",
+        "compleated": true
+    },
+    {
+        "title": "CSV to JSON Converter",
+        "description": "Converts CSV files to JSON format for easier data handling in web applications.",
+        "favicon": "<i class='fa-solid fa-database'></i>",
+        "compleated": true
+    },
+   
+    {
+        "title": "Base64 Encoder-Decoder",
+        "description": "Encodes or decodes data to/from Base64 format for data transmission and storage.",
+        "favicon": "<i class='fa-solid fa-database'></i>",
+        "compleated": true
+    },
+    
+    {
+        "title": "Free CSS Animated Background",
+        "description": "Provides a selection of animated CSS backgrounds to enhance the visual appeal of your website with smooth, dynamic effects.",
+        "favicon": "<i class='fa-solid fa-image'></i>",
+        "compleated": true
+    },
+    {
+        "title": "Free CSS Animated loaders",
+        "description": "Provides animated CSS loaders to enhance the visual appeal of your website with loading effects.",
+        "favicon": "<i class='fa-solid fa-spinner'></i>",
+        "compleated": true
+    }
+
+]

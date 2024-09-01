@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Light Pulse Effect</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+   
+      }
+     
+        .neon-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .neon-light {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 0, 255, 0.5);
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.8);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        .neon-light:nth-child(2) {
+            background: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
+            animation-duration: 2.5s;
+        }
+
+        .neon-light:nth-child(3) {
+            background: rgba(255, 255, 0, 0.5);
+            box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+            animation-duration: 3s;
+        }
+
+        .neon-light:nth-child(4) {
+            background: rgba(0, 255, 0, 0.5);
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.8);
+            animation-duration: 1.5s;
+        }
+
+        /* Additional styling for your content */
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            height: 94vh;
+            width:97vw;
+            font-family: 'Arial', sans-serif;
+            background-color: rgba(12, 16, 18, 0.713);
+            backdrop-filter: blur(10px);
+
+        }
+        h1{
+            font-size: 5vmax;
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-background">
+        <!-- Generating multiple neon lights -->
+        <div class="neon-light" style="left: 20%; top: 30%;"></div>
+        <div class="neon-light" style="left: 50%; top: 60%;"></div>
+        <div class="neon-light" style="left: 80%; top: 20%;"></div>
+        <div class="neon-light" style="left: 10%; top: 70%;"></div>
+    </div>
+    <div class="content">
+        <h1>Neon Light Pulse</h1>
+        <p>Experience the vibrant and glowing neon lights with a pulsating effect.</p>
+    </div>
+</body>
+</html>

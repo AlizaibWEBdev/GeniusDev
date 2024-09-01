@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+
+    <title>GeniusDev - Developer Tools & Resources</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background-color: #ffffff;
+            min-height: 70vh;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            color: #333;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h3 {
+            font-size: 32px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .hero-content ul {
+            padding-left: 20px;
+        }
+
+        .hero-content ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            list-style-type: disc;
+        }
+
+        .hero-content ul li strong {
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p,
+            .hero-content ul li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>About us</h1>
+            <p>Welcome to <strong>GeniusDev</strong>, your one-stop destination for essential developer tools. We are passionate about empowering developers, designers, and digital creators by providing them with powerful, easy-to-use tools that enhance productivity and streamline workflows. Our mission is to make development faster, simpler, and more efficient by offering a range of free online tools that cater to various aspects of web development and design.</p>
+            <p>At <strong>GeniusDev</strong>, we understand the challenges developers face in their daily tasks. That’s why we’ve curated a collection of tools designed to address common needs. Here are some of the tools we offer:</p>
+            <ul>
+                <li><strong>Free Online API Request Tester:</strong> An intuitive tool that lets you test and make HTTP requests online, similar to Postman, but without the need to install software.</li>
+                <li><strong>Keyword Extractor Tool:</strong> Analyze and extract keywords from websites to better understand what drives their search engine rankings.</li>
+                <li><strong>Color Scheme & Palette Generator:</strong> Create stunning color schemes and palettes effortlessly, perfect for web design and branding projects.</li>
+                <li><strong>HTML, CSS & JavaScript Minifiers:</strong> Optimize your code by compressing HTML, CSS, and JavaScript files to reduce file sizes, improving your website’s load times.</li>
+                <li><strong>JSON to CSV & CSV to JSON Converters:</strong> Easily convert data between JSON and CSV formats, simplifying data management and analysis in web applications.</li>
+                <li><strong>Base64 Encoder-Decoder:</strong> A reliable tool to encode or decode data to and from Base64 format, ensuring secure data transmission and storage.</li>
+                <li><strong>Free CSS Animated Backgrounds & Loaders:</strong> Add a touch of creativity to your websites with our collection of animated CSS backgrounds and loaders, designed to captivate your audience.</li>
+            </ul>
+            <h3>Our Commitment</h3>
+            <p>We are committed to continuously enhancing our tools and adding new features based on your feedback and evolving industry trends. Our goal is to create a comprehensive suite of tools that developers can rely on for their projects, no matter how big or small.</p>
+            <p>Thank you for choosing <strong>GeniusDev</strong> as your go-to resource for developer tools. We’re excited to be a part of your development journey and look forward to supporting your success with innovative, user-friendly solutions.</p>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

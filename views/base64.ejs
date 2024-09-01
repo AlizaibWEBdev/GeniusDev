@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Use our free online Base64 encode and decode tool to convert text to Base64 or decode Base64 back to text. Supports encoding and decoding strings, text, and more.">
+    <meta name="keywords"
+        content="base64 decode, base64 decode online, base64 encode decode online, base64 translator, decode base 64 online, decrypt base64 online, base64 text, base64 decode string, base64 decrypt, decrypt base 64, encode and decode strings, base64 encode decode, convert base64 to text">
+    <title>Base64 Encode Decode Online Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+</head>
+<style>
+    /* Responsive and Unique Styles for the Base64 Tool */
+
+    .unique-heading-section {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .unique-heading-section p {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .unique-tool-section {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .unique-tool-section h2 {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    #inputText {
+        width: 98%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        resize: vertical;
+    }
+
+    .unique-button-group {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .unique-button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .unique-button:hover {
+        background-color: #0056b3;
+    }
+
+    .unique-output-box {
+        background-color: #efefef;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 16px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .unique-additional-content {
+        margin: 40px auto;
+        
+        line-height: 1.6;
+        
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .unique-additional-content div{
+        background-color: white;
+   
+        min-height: 230px;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .unique-additional-content h2 {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+
+    .unique-additional-content p {
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .unique-additional-content ul {
+        margin-left: 20px;
+        list-style-type: disc;
+    }
+
+    .unique-additional-content ul li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 4vmax;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 800px) {
+
+        .unique-tool-section,
+        .unique-additional-content {
+            padding: 15px;
+           
+        }
+        .unique-additional-content{
+            grid-template-columns: repeat(1,1fr);
+        }
+        .unique-button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .unique-button-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #inputText {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .unique-heading-section h1 {
+            font-size: 24px;
+        }
+
+        .unique-additional-content h2 {
+            font-size: 20px;
+        }
+
+        .unique-additional-content p,
+        .unique-additional-content ul li {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<body>
+    <%- include('partials/header') %>
+        <br>
+        <br>
+        <section class="unique-heading-section">
+            <h1>Base64 Encode and Decode Online Tool</h1>
+            <br>
+            <p>Quickly encode or decode Base64 strings using our free online tool. Convert text to Base64 and back with
+                ease.</p>
+        </section>
+
+        <!-- Base64 Tool Section -->
+        <section class="unique-tool-section">
+            <h2>Base64 Encoder/Decoder</h2>
+            <form id="base64Form">
+                <textarea name="input" id="inputText" rows="4" placeholder="Enter your text here..."></textarea>
+                <div class="unique-button-group">
+                    <button type="button" class="unique-button" onclick="submitForm('encode')">Encode</button>
+                    <button type="button" class="unique-button" onclick="submitForm('decode')">Decode</button>
+                </div>
+            </form>
+            <h2>Output:</h2>
+            <pre id="outputText" class="unique-output-box"></pre>
+        </section>
+
+        <!-- Additional Content Section -->
+        <section class="unique-additional-content">
+         <div>
+            <h2>What is Base64 Encoding?</h2>
+            <p>Base64 encoding is a method of converting binary data into a text format. It is commonly used in web
+                applications to encode data such as images, files, and other binary content into a text string that can
+                be
+                easily transmitted over the internet.</p>
+         </div>
+
+          <div>
+            <h2>Why Use Base64 Encoding?</h2>
+            <p>Base64 encoding is useful because it ensures that data remains intact without modification during
+                transport.
+                This is particularly important for transmitting data via email or embedding binary content directly into
+                web
+                pages.</p>
+          </div>
+
+          <div>
+            <h2>How to Decode Base64 Strings?</h2>
+            <p>Decoding Base64 is simple with our tool. Just paste your Base64 string into the input box and click
+                'Decode'
+                to get your original text back. Our tool supports decoding Base64 strings into text, so you can easily
+                decrypt Base64 encoded data online.</p>
+          </div>
+<div>
+    
+    <h2>Convert Base64 to Text</h2>
+    <p>If you have a Base64 string and need to convert it back to readable text, our Base64 decode tool can
+        help.
+        Just paste the string, and in one click, you'll have your text back.</p>
+
+</div>
+         <div>
+            <h2>Common Use Cases</h2>
+            <ul>
+                <li>Encoding images or files into Base64 for embedding in HTML or CSS.</li>
+                <li>Transmitting data via email in a safe, text-based format.</li>
+                <li>Storing binary data in text formats such as JSON or XML.</li>
+            </ul>
+         </div>
+
+           <div>
+            <h2>Try Our Base64 Encode/Decode Tool</h2>
+            <p>Whether you need to encode text into Base64 or decode a Base64 string back into text, our tool is easy to
+                use
+                and free. Start encoding or decoding now!</p>
+           </div>
+        </section>
+        
+            <%- include('partials/footer') %>
+                <script>
+                    function submitForm(action) {
+                        const inputText = document.getElementById('inputText').value;
+                        let outputText = '';
+
+                        if (action === 'encode') {
+                            outputText = btoa(inputText);
+                        } else if (action === 'decode') {
+                            try {
+                                outputText = atob(inputText);
+                            } catch (e) {
+                                outputText = 'Invalid Base64 string!';
+                            }
+                        }
+
+                        document.getElementById('outputText').innerText = outputText;
+                    }
+                </script>
+</body>
+
+</html>

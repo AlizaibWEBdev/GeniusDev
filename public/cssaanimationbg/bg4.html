@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Squares Animated Background</title>
+    <style>
+        /* Unique class for the floating squares animated background */
+        .floating-squares-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .square {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: floatSquare 4s infinite;
+            border-radius: 4px;
+        }
+
+        .square:nth-child(2n) {
+            width: 30px;
+            height: 30px;
+            animation-duration: 15s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .square:nth-child(3n) {
+            width: 15px;
+            height: 15px;
+            animation-duration: 12s;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes floatSquare {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-200px) translateX(100px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(-400px) translateX(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Additional styling for your content */
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        h1{
+            font-size: 5vmax;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-squares-background">
+        <!-- Generating multiple squares -->
+        <div class="square" style="left: 10%; top: 90%;"></div>
+        <div class="square" style="left: 20%; top: 95%;"></div>
+        <div class="square" style="left: 30%; top: 85%;"></div>
+        <div class="square" style="left: 40%; top: 80%;"></div>
+        <div class="square" style="left: 50%; top: 92%;"></div>
+        <div class="square" style="left: 60%; top: 89%;"></div>
+        <div class="square" style="left: 70%; top: 95%;"></div>
+        <div class="square" style="left: 80%; top: 90%;"></div>
+        <div class="square" style="left: 90%; top: 87%;"></div>
+    </div>
+    <div class="content">
+        <h1>Floating Squares Effect</h1>
+        <p>Enjoy the smooth floating squares in the background.</p>
+    </div>
+</body>
+</html>

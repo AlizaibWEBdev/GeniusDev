@@ -1,0 +1,60 @@
+
+    <style>
+       
+        .spinning-rings {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .spinning-rings div {
+            position: absolute;
+            border: 6px solid transparent;
+            border-radius: 50%;
+            border-top: 6px solid #3498db;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .spinning-rings div:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            border-width: 6px;
+            animation-duration: 1.5s;
+            animation-delay: -0.3s;
+        }
+
+        .spinning-rings div:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            border-width: 6px;
+            animation-duration: 1.5s;
+            animation-delay: -0.6s;
+        }
+
+        .spinning-rings div:nth-child(4) {
+            width: 20px;
+            height: 20px;
+            border-width: 6px;
+            animation-duration: 1.5s;
+            animation-delay: -0.9s;
+        }
+
+     
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+    <div class="spinning-rings">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+

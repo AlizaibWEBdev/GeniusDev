@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Keyword Extractor is a tool that helps you extract and analyze keywords from any website URL. Discover title and meta description, top keywords, keyword density, and more. Visualize keyword data with charts and tables for effective SEO optimization.">
+  <meta name="keywords" content="keyword extractor, SEO tool, keyword analysis, keyword density, website keywords, top keywords, short-tail keywords, long-tail keywords, keyword placement, content structure, internal links, external links">
+  <link rel="stylesheet" href="style.css">
+  <title>Free Keyword Extractor From webiste  </title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+   header ul{
+      transform: translateY(10px);
+    }
+    a{
+      text-decoration: none;
+    }
+    button{
+      background-color: #b3831c !important;
+      border: none !important;
+    }
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      min-height: 60vh;
+    }
+    .spinner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .results {
+      margin-top: 30px;
+      display: none;
+    }
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+    }
+    pre {
+      background-color: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .keyword-table th, .keyword-table td {
+      vertical-align: middle;
+    }
+    table{
+      max-height: 700px;
+      overflow: scroll;
+    }
+    .scroll{
+      max-height: 600px;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <br>
+  <br>
+  <div class="container">
+    <h1 class="text-center mb-4">Website  Keyword Extractor</h1>
+    <div class="card p-4 shadow-sm">
+      <form id="extractForm">
+        <div class="mb-3">
+          <label for="urlInput" class="form-label">Enter Website URL</label>
+          <input type="url" class="form-control" id="urlInput" placeholder="https://example.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Extract Keywords</button>
+      </form>
+      <div class="spinner mt-4">
+        <i class="fas fa-spinner fa-spin fa-2x"></i>
+      </div>
+    </div>
+
+    <div class="results mt-5">
+      <h2>Results</h2>
+
+      <div class="mb-4">
+        <h4>Title and Meta Description</h4>
+        <p><strong>Title:</strong> <span id="title"></span></p>
+        <p><strong>Meta Description:</strong> <span id="metaDescription"></span></p>
+      </div>
+
+      <div class="mb-4">
+        <h4>Headers</h4>
+        <div id="headers"></div>
+      </div>
+
+      <div class="mb-4">
+        <h4>Top 30 Keywords</h4>
+        <div class="chart-container">
+          <canvas id="topKeywordsChart"></canvas>
+        </div>
+       <div class="scroll">
+        <table class="table table-striped keyword-table mt-3">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Count</th>
+              <th>Density</th>
+            </tr>
+          </thead>
+          <tbody id="topKeywordsTable"></tbody>
+        </table>
+       </div>
+      </div>
+
+      <div class="mb-4">
+        <h4>Short-Tail Keywords</h4>
+      <div class="scroll">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody id="shortTailKeywords"></tbody>
+        </table>
+      </div>
+      </div>
+
+      <div class="mb-4">
+        <h4>Long-Tail Keywords</h4>
+       <div class="scroll">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody id="longTailKeywords"></tbody>
+        </table>
+       </div>
+      </div>
+
+      <div class="mb-4">
+        <h4>Keyword Placement</h4>
+        <ul>
+          <li><strong>In Title:</strong> <span id="inTitle"></span></li>
+          <li><strong>In Meta Description:</strong> <span id="inMetaDescription"></span></li>
+          <li><strong>In Headers:</strong> <span id="inHeaders"></span></li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h4>Content Structure</h4>
+        <ul>
+          <li><strong>Paragraphs:</strong> <span id="paragraphCount"></span></li>
+          <li><strong>Images:</strong> <span id="imageCount"></span></li>
+          <li><strong>Lists:</strong> <span id="listCount"></span></li>
+          <li><strong>Tables:</strong> <span id="tableCount"></span></li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h4>Links</h4>
+        <ul>
+          <li><strong>Internal Links:</strong> <span id="internalLinksCount"></span></li>
+          <li><strong>External Links:</strong> <span id="externalLinksCount"></span></li>
+        </ul>
+        <button class="btn btn-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#internalLinks" aria-expanded="false" aria-controls="internalLinks">
+          Show Internal Links
+        </button>
+        <div class="collapse mb-2" id="internalLinks">
+          <ul id="internalLinksList" class="list-group"></ul>
+        </div>
+        <button class="btn btn-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#externalLinks" aria-expanded="false" aria-controls="externalLinks">
+          Show External Links
+        </button>
+        <div class="collapse" id="externalLinks">
+          <ul id="externalLinksList" class="list-group"></ul>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h4>Keyword Diversity</h4>
+        <p><strong>Keyword Diversity:</strong> <span id="keywordDiversity"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('extractForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const url = document.getElementById('urlInput').value;
+      const resultsSection = document.querySelector('.results');
+      const spinner = document.querySelector('.spinner');
+      
+      // Show spinner and hide results
+      spinner.style.display = 'block';
+      resultsSection.style.display = 'none';
+
+      try {
+        const response = await fetch('/extract', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url })
+        });
+
+        const data = await response.json();
+        
+        
+        if (response.ok) {
+          displayResults(data);
+        } else {
+          alert(data.error || 'Error: Unable to extract keywords.');
+        }
+      } catch (error) {
+        alert('Error: ' + error.message);
+      } finally {
+        spinner.style.display = 'none';
+      }
+    });
+
+    function displayResults(data) {
+      console.log(data);
+      
+      const results = document.querySelector('.results');
+      results.style.display = 'block';
+
+      // Title and Meta Description
+      document.getElementById('title').textContent = data.title || 'N/A';
+      document.getElementById('metaDescription').textContent = data.metaDescription || 'N/A';
+
+      // Headers
+      const headersContainer = document.getElementById('headers');
+      headersContainer.innerHTML = '';
+
+
+     
+
+      // Top 30 Keywords Chart
+      const topKeywords = data.top30Keywords || [];
+      const chartLabels = topKeywords.map(k => k.word);
+      const chartData = topKeywords.map(k => k.count);
+
+      const ctx = document.getElementById('topKeywordsChart').getContext('2d');
+      
+      window.topKeywordsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: chartLabels,
+          datasets: [{
+            label: 'Keyword Count',
+            data: chartData,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              ticks: {
+                autoSkip: false,
+                maxRotation: 90,
+                minRotation: 45
+              }
+            },
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Top 30 Keywords Table
+      const topKeywordsTable = document.getElementById('topKeywordsTable');
+      topKeywordsTable.innerHTML = '';
+      topKeywords.forEach(k => {
+        const tr = document.createElement('tr');
+        const tdWord = document.createElement('td');
+        tdWord.textContent = k.word;
+        const tdCount = document.createElement('td');
+        tdCount.textContent = k.count;
+        const tdDensity = document.createElement('td');
+        tdDensity.textContent = data.keywordDensity[k.word] || '0%';
+        tr.appendChild(tdWord);
+        tr.appendChild(tdCount);
+        tr.appendChild(tdDensity);
+        topKeywordsTable.appendChild(tr);
+      });
+
+      // Short-Tail Keywords
+      const shortTailKeywords = data.shortTailKeywords || [];
+      const shortTailContainer = document.getElementById('shortTailKeywords');
+      shortTailContainer.innerHTML = '';
+      shortTailKeywords.forEach(k => {
+        const tr = document.createElement('tr');
+        const tdWord = document.createElement('td');
+        tdWord.textContent = k.word;
+        const tdCount = document.createElement('td');
+        tdCount.textContent = k.count;
+        tr.appendChild(tdWord);
+        tr.appendChild(tdCount);
+        shortTailContainer.appendChild(tr);
+      });
+
+      // Long-Tail Keywords
+      const longTailKeywords = data.longTailKeywords || [];
+      const longTailContainer = document.getElementById('longTailKeywords');
+      longTailContainer.innerHTML = '';
+      longTailKeywords.forEach(k => {
+        const tr = document.createElement('tr');
+        const tdWord = document.createElement('td');
+        tdWord.textContent = k.word;
+        const tdCount = document.createElement('td');
+        tdCount.textContent = k.count;
+        tr.appendChild(tdWord);
+        tr.appendChild(tdCount);
+        longTailContainer.appendChild(tr);
+      });
+
+      // Keyword Placement
+      document.getElementById('inTitle').textContent = data.keywordPlacement.inTitle.map(k => k.word).join(', ') || 'None';
+      document.getElementById('inMetaDescription').textContent = data.keywordPlacement.inMetaDescription.map(k => k.word).join(', ') || 'None';
+      document.getElementById('inHeaders').textContent = data.keywordPlacement.inHeaders.map(k => k.word).join(', ') || 'None';
+
+      // Content Structure
+      document.getElementById('paragraphCount').textContent = data.contentStructure.paragraphCount || 0;
+      document.getElementById('imageCount').textContent = data.contentStructure.imageCount || 0;
+      document.getElementById('listCount').textContent = data.contentStructure.listCount || 0;
+      document.getElementById('tableCount').textContent = data.contentStructure.tableCount || 0;
+
+      // Links
+      document.getElementById('internalLinksCount').textContent = data.links.internalLinksCount || 0;
+      document.getElementById('externalLinksCount').textContent = data.links.externalLinksCount || 0;
+
+      const internalLinksList = document.getElementById('internalLinksList');
+      internalLinksList.innerHTML = '';
+      data.links.internalLinks.forEach(link => {
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        const a = document.createElement('a');
+        a.href = link;
+        a.textContent = link;
+        a.target = '_blank';
+        li.appendChild(a);
+        internalLinksList.appendChild(li);
+      });
+
+      const externalLinksList = document.getElementById('externalLinksList');
+      externalLinksList.innerHTML = '';
+      data.links.externalLinks.forEach(link => {
+        const li = document.createElement('li');
+        li.classList.add('list-group-item');
+        const a = document.createElement('a');
+        a.href = link;
+        a.textContent = link;
+        a.target = '_blank';
+        li.appendChild(a);
+        externalLinksList.appendChild(li);
+      });
+
+      // Keyword Diversity
+      document.getElementById('keywordDiversity').textContent = data.keywordDiversity || '0';
+    }
+  </script>
+</body>
+</html>

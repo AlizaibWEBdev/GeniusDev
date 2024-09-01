@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Minifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="minifier.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+</head>
+<style>
+    .additional-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        margin: auto;
+        flex-wrap: wrap;
+        width: 100vw;
+        gap: 20px;
+    }
+
+    .additional-content div {
+        width: calc(100%/2 - 20px);
+        max-width: 500px;
+        min-height: 330px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        min-width: 320px;
+        border-radius: 10px;
+    }
+
+
+    .additional-content p,ul,li {
+        font-weight: 500 !important;
+    }
+</style>
+
+<body>
+    <%- include('partials/header') %>
+        <div class="center">
+            <div class="minifier-container">
+                <div class="text-hading">
+                    <h1>HTML Minifier</h1>
+                    <h2>Minify HTML, CSS, and JavaScript Online</h2>
+                </div>
+                <br>
+                <br>
+                <div class="input-center">
+                    <div class="input">
+                        <textarea id="htmlInput" placeholder="Paste your HTML code here..."></textarea>
+                        <button id="minifyHtmlBtn">Minify</button>
+                    </div>
+                    <textarea id="htmlOutput" placeholder="Minified HTML code will appear here..." readonly></textarea>
+                </div>
+
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <p style="text-align: center; padding: 20px; font-weight: 500;">Our HTML Minifier is also compatible with
+            Cloudflare's minify HTML feature, making it easy to integrate into your existing workflow. Start using our
+            tool now to compress HTML file size online, and enhance your website’s speed and performance.</p>
+        <br>
+        <div class="additional-content">
+            <div class="new-text-heading">
+                <h2>HTML Minifier</h2>
+
+                <p>Our HTML Minifier tool allows you to compress HTML code, CSS stylesheets, and JavaScript files
+                    online. Whether you need to minify code to optimize your website's performance or compress file
+                    sizes for faster loading times, our tool is perfect for developers and webmasters.</p>
+            </div>
+            <div class="new-additional-info">
+                <h3>Why Use an HTML Minifier?</h3>
+                <ul>
+                    <li>Compress HTML file size to improve load times.</li>
+                    <li>Minify CSS, JavaScript, and HTML for better performance.</li>
+                    <li>Reduce bandwidth usage with our online HTML minifier.</li>
+                    <li>Unminify HTML code for easier readability when needed.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <br>
+        <br>
+        
+            <%- include('partials/footer') %>
+</body>
+<script>
+    document.getElementById('minifyHtmlBtn').addEventListener('click', function () {
+        const htmlInput = document.getElementById('htmlInput').value;
+        const minifiedHtml = htmlInput
+            .replace(/\n\s*/g, '') // Remove new lines and spaces
+            .replace(/>\s*</g, '><'); // Remove spaces between tags
+        document.getElementById('htmlOutput').value = minifiedHtml;
+    });
+</script>
+
+</html>

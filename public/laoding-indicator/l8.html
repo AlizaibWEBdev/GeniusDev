@@ -1,0 +1,61 @@
+
+    <style> 
+
+       
+        .rotating-squares {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .rotating-squares div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            animation: rotate 1.2s linear infinite;
+        }
+
+        .rotating-squares div:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        .rotating-squares div:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation-delay: -0.3s;
+        }
+
+        .rotating-squares div:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            animation-delay: -0.6s;
+        }
+
+        .rotating-squares div:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            animation-delay: -0.9s;
+        }
+
+       
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+    <div class="rotating-squares">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+

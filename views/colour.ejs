@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A color palette generator that displays beautiful color palettes with color codes. Click on a color to copy its code to the clipboard.">
+    <meta name="keywords"
+        content="color palette generator, color codes, color palettes, copy color code, color palette">
+    <title>Color Palette Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        h1{
+            font-size: 4vmax;
+          font-weight: 900;
+          
+        }
+        .palette {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            animation: fadeIn 0.5s ease-in-out;
+            width: 100vw;
+            max-width: 900px;
+            margin: auto;
+            margin-bottom: 10px;
+            
+           border-radius: 10px;
+           height: 170px;
+         
+         
+            
+        }
+
+        .color-box {
+            position: relative;
+            width: calc(20% - 10px);
+
+            height: 150px;
+            
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .color-box:hover {
+            transform: scale(1.07);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Increase shadow on hover */
+        }
+
+        .color-box .color-code {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-size: 12px;
+            /* Slightly larger font size */
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.4);
+            /* Semi-transparent background for better readability */
+            border-radius: 5px;
+            /* Rounded corners for the text background */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+           .color-box{
+            height: 90px;
+           }
+          
+        }
+     
+
+        h1{
+            text-align: center;
+           }
+
+        #notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.notification {
+    background:linear-gradient(#723900,#000017);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <br>
+        <br>
+        <br>
+        <div class="center">
+
+            <h1 class="main-heading">Color Palette Generator Colors of the Planet</h1>
+
+
+        </div>
+        <br>
+
+        <div id="palettes"></div>
+        <div id="notification-container"></div>
+        <%- include('partials/footer') %>
+            <script>
+                 function showNotification(message) {
+            const notificationContainer = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+
+            notificationContainer.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notificationContainer.removeChild(notification);
+                    }, 300); // Remove after the fade-out transition
+                }, 3000); // Display for 3 seconds
+            }, 10); // Small delay to ensure transition is applied
+        }
+
+                function generatePalette(baseColor, numberOfColors = 5) {
+                    return chroma.scale([baseColor, chroma(baseColor).darken(2)]).mode('lch').colors(numberOfColors);
+                }
+
+                function displayPalette(colors) {
+                    const paletteDiv = document.createElement('div');
+                    paletteDiv.className = 'palette';
+
+                    colors.forEach(color => {
+                        const colorBox = document.createElement('div');
+                        colorBox.className = 'color-box';
+                        colorBox.style.backgroundColor = color;
+
+                        const colorCode = document.createElement('div');
+                        colorCode.className = 'color-code';
+                        colorCode.textContent = color;
+
+                        colorBox.appendChild(colorCode);
+                        colorBox.onclick = () => copyToClipboard(color);
+                        paletteDiv.appendChild(colorBox);
+                    });
+
+                    document.getElementById('palettes').appendChild(paletteDiv);
+                }
+
+                function generatePalettes(numPalettes = 10) {
+                    for (let i = 0; i < numPalettes; i++) {
+                        const randomColor = chroma.random().hex(); // Generate a random base color
+                        const palette = generatePalette(randomColor); // Generate a palette based on the random color
+                        displayPalette(palette);
+                    }
+                }
+
+                function copyToClipboard(color) {
+                    navigator.clipboard.writeText(color).then(() => {
+                          showNotification(`Copied color: ${color}`);
+                    }).catch(err => {
+                        console.error('Failed to copy color: ', err);
+                    });
+                }
+
+                function loadMorePalettes() {
+                    generatePalettes(); // Generate 10 more palettes
+                }
+
+                function handleScroll() {
+                    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+                        loadMorePalettes();
+                    }
+                }
+
+                window.addEventListener('scroll', handleScroll);
+
+                // Generate initial palettes when the page loads
+                generatePalettes();
+            </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<br>
+<br>
+<div class="center" style="flex-direction: column;">
+    <h2 style="font-size: 25px; border-bottom: 1px solid #b3831c;" >Expolre over tools</h2>
+    <input type="search" placeholder="search tool">
+</div>
+
+
+
+<div class="toolgrid" id="toolgrid"></div>
+<script>
+    let toolgrid = document.getElementById("toolgrid");
+    let data;
+
+    // Fetch and render tools
+    fetch("/data.json")
+        .then(response => response.json())
+        .then(json => {
+            data = json;
+            renderTools(json);
+        });
+
+    // Render tools based on search or full list
+    function renderTools(tools) {
+        toolgrid.innerHTML = tools.map(tool => `
+        ${tool.compleated
+                ? `<a class="tool" href="/${tool.title.toLowerCase().replaceAll(" ", "-")}">`
+                : `<div class="uncompleat tool">`}
+            ${tool.favicon}
+            <h2 class="hading">${tool.title}</h2>
+            <p>${tool.description}</p>
+        ${tool.compleated ? '</a>' : '</div>'}
+    `).join('');
+    }
+
+    // Search functionality
+    document.querySelector("input[type=search]").addEventListener("input", e => {
+        const query = e.target.value.toLowerCase();
+        const filteredTools = data.filter(tool =>
+            tool.title.toLowerCase().includes(query)
+        );
+        renderTools(filteredTools);
+    });
+
+</script>

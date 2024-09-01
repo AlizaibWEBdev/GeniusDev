@@ -1,0 +1,301 @@
+textarea {
+    height: 150px;
+}
+
+header ul {
+    position: relative;
+    top: 10px;
+}
+
+#response-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #b7b7b7;
+
+    padding: 1rem;
+    max-height: 400px;
+    height: 200px;
+    overflow-y: auto;
+    transform: translateY(-4px);
+}
+
+.dynamic-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.field-key,
+.field-value {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.remove-field {
+    display: none;
+}
+
+.field-item:last-child .remove-field {
+    display: inline;
+}
+
+.nav-tabs .nav-link {
+    cursor: pointer;
+}
+
+.tab-content {
+    margin-top: 1rem;
+}
+
+#loading-indicator {
+    display: none;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#response-details {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+a {
+    color: #b3831c;
+    font-weight: 500;
+}
+
+a:hover {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+input,
+select {
+    outline: none;
+    border: 1px solid #b3831c !important;
+}
+
+button[type="submit"] {
+    background-color: #b07b08 !important;
+
+
+
+
+}
+
+button[type="submit"] i {
+    color: white;
+}
+
+/* Remove the box shadow */
+.form-control:focus {
+    box-shadow: none;
+    outline: none;
+    /* Remove the outline if needed */
+}
+
+#code-output {
+    background-color: #ddd;
+    padding: 20px;
+    font-size: 16px;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-transform: none;
+    cursor: text;
+    border-radius: 10px;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 50px;
+    transform: translateY(10px);
+
+    background-color: rgba(255, 255, 255, 0.539);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #b07b08;
+    width: 40px;
+    height: 40px;
+}
+
+.copy-btn i {
+    color: #b07b08;
+}
+
+#response {
+    position: relative;
+}
+
+main {
+    display: flex;
+    height: 76vh;
+}
+
+header {
+
+    box-shadow: none;
+}
+
+section {
+    background-color: #f4f4f4 !important;
+}
+
+.sidenav {
+    width: 260px;
+    height: 89.50vh;
+    background-color: #fbfbfbc8;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 20px;
+    color: #ecf0f1;
+}
+
+.sidenav-header {
+    text-align: center;
+    
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidenav div {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: #000000;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: 500;
+}
+
+   footer {
+    position: relative;
+    z-index: 99999;
+}
+
+body {
+    overflow: hidden;
+}
+
+.api-section {
+    overflow-y: auto;
+    width: 90%;
+
+    height: 89vh;
+}
+
+section {
+    border-radius: 0px;
+}
+
+/* Loading bouncing animation */
+.bounce-loader {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+}
+
+.bounce-loader div {
+    width: 18px;
+    height: 18px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.bounce-loader div:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.bounce-loader div:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+/* Keyframes for the bouncing animation */
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+}
+
+.request-main-url-inf{
+
+
+display: flex;
+flex-direction: column;
+align-items: start;
+justify-content: flex-start;
+background-color:#E0E0E0; 
+border: 1px solid #bababa;
+font-weight: normal;
+height: 55px;
+}
+
+.request-main-url-inf .request-url{
+    text-transform: none !important;
+overflow: hidden;
+color: rgb(13, 0, 255);
+text-align: start;
+width: 100%;
+
+
+}
+.request-main-url-inf.active{
+    background-color: #FFF4D6; /* Light gold background */
+    border: 1px solid #DAA520; /* Golden border */
+}
+.request-info{
+font-weight: normal;
+font-size: 13px;
+display: flex;
+width: 100%;
+flex-direction: row-reverse;
+justify-content: space-between;
+}
+.request-info .request-type{
+
+border-radius: 5px;
+color: white;
+padding: 2px;
+}
+.sidenav{
+    overflow-y: auto;
+}
+ .GET{
+background-color: green;
+}
+ .POST{
+background-color: rgb(0, 0, 0);
+}
+ .PUT{
+background-color: rgb(255, 247, 0);
+color: black !important;
+}
+ .DELETE{
+background-color: rgb(255, 0, 0);
+}
+#search-history{
+padding: 10px;
+border-radius: 10px;
+font-size: 16px;
+margin-top: 3px;
+}
