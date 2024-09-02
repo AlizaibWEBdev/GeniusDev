@@ -3,31 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Contact geniusdev</title>
 </head>
+<style>
+    .gd-contact-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gd-contact-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.gd-contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.gd-email-link {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+.gd-contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gd-contact-icon {
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+}
+
+.gd-contact-icon:hover {
+    color: #007BFF;
+}
+
+.gd-footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+</style>
 <body>
     <%- include('partials/header') %>
-    <br>    <br>
-    <div class="center">
-        
-        <h1>contact us</h1>
-        
-        
-    </div>
-    <div class="center" style="height: 61vh;">
-        <b><p><br> <a href="mailto:alizaib.web.dev@gmail.com" style="text-decoration: underline;">alizaib.web.dev@gmail.com</a></p></b>
-    </div>
+   
+    <main>
+        <section class="gd-contact-section center">
+            <h1>Contact Us</h1>
+            <p><strong>Email:</strong> <a href="mailto:alizaib.web.dev@gmail.com" class="gd-email-link">alizaib.web.dev@gmail.com</a></p>
+            <div class="gd-contact-links">
+                <a href="https://wa.me/03208757582" class="gd-contact-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com/alizaibwebdev" class="gd-contact-icon" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100071016100553" class="gd-contact-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/alizaib-jatoi-0566ab260/" class="gd-contact-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </section>
+    </main>
 
 
-
-    <br>    <br>
-    
-
-        
-
-    <br>
-    <br>
     <%- include('partials/footer') %>
 </body>
 </html>
