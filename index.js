@@ -145,6 +145,10 @@ app.get('/tools', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about');
 });
+app.get('/free-roadmaps', (req, res) => {
+  res.render('roadmaps');
+});
+
 app.post('/extract', async (req, res) => {
   const { url } = req.body;
 

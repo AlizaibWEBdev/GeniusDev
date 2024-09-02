@@ -13,7 +13,12 @@
         "favicon": "<i class='fa-solid fa-tag'></i>",
         "compleated": true
     },
-   
+    {
+        "title": "Free Roadmaps",
+        "description": "offers detailed roadmaps for various tech and career paths",
+        "favicon": "<i class='fa-solid fa-road'></i>",
+        "compleated": true
+    },
     {
         "title": "Color Scheme & Palette Generator",
         "description": "Generates color schemes based on user-selected colors for web design and Generates color palettes",

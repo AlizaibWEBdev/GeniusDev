@@ -1,0 +1,302 @@
+[
+    {
+        "title": "Full Stack Web Developer",
+        "description": "Learn both frontend and backend development, covering everything from HTML/CSS to server management.",
+        "favicon":"<i class='fa-laptop-code fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Backend Developer",
+        "description": "Focus on server-side logic, database management, and API development.",
+        "favicon":"<i class='fa-server fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Frontend Developer",
+        "description": "Master HTML, CSS, JavaScript, and frontend frameworks to build responsive, user-friendly websites.",
+        "favicon":"<i class='fa-paint-brush fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Mobile App Developer",
+        "description": "Develop native and cross-platform mobile applications for iOS and Android.",
+        "favicon":"<i class='fa-mobile-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "DevOps Engineer",
+        "description": "Bridge the gap between development and operations by automating and streamlining software delivery.",
+        "favicon":"<i class='fa-cogs fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "QA Engineer",
+        "description": "Ensure software quality through rigorous testing, both manual and automated.",
+        "favicon":"<i class='fa-check-circle fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Cybersecurity Specialist",
+        "description": "Protect systems and networks from cyber threats, ensuring data integrity and confidentiality.",
+        "favicon":"<i class='fa-shield-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Data Scientist",
+        "description": "Analyze complex data sets to extract meaningful insights and build predictive models.",
+        "favicon":"<i class='fa-database fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Data Analyst",
+        "description": "Interpret data to help organizations make informed business decisions.",
+        "favicon":"<i class='fa-chart-line fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Machine Learning Engineer",
+        "description": "Design and implement machine learning algorithms to solve real-world problems.",
+        "favicon":"<i class='fa-robot fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "AI Engineer",
+        "description": "Develop artificial intelligence systems that mimic human behavior and decision-making.",
+        "favicon":"<i class='fa-brain fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Cloud Architect",
+        "description": "Design and manage scalable cloud infrastructure solutions for businesses.",
+        "favicon":"<i class='fa-cloud fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Network Engineer",
+        "description": "Design, implement, and manage complex network systems to ensure reliable communication.",
+        "favicon":"<i class='fa-network-wired fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Blockchain Developer",
+        "description": "Create decentralized applications and smart contracts on blockchain platforms.",
+        "favicon":"<i class='fa-cube fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Game Developer",
+        "description": "Develop video games across various platforms, including PC, console, and mobile.",
+        "favicon":"<i class='fa-gamepad fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "UI/UX Designer",
+        "description": "Design user interfaces and experiences that are both visually appealing and easy to use.",
+        "favicon":"<i class='fa-desktop fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Database Administrator",
+        "description": "Manage and maintain database systems, ensuring data availability and security.",
+        "favicon":"<i class='fa-database fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "System Administrator",
+        "description": "Oversee the installation, support, and maintenance of servers and other IT infrastructure.",
+        "favicon":"<i class='fa-tools fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "IT Support Specialist",
+        "description": "Provide technical support and troubleshooting assistance for hardware and software issues.",
+        "favicon":"<i class='fa-bug fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Software Engineer",
+        "description": "Develop, test, and maintain software applications across various platforms.",
+        "favicon":"<i class='fa-lock fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Embedded Systems Engineer",
+        "description": "Design and develop software for embedded systems in devices like wearables and IoT.",
+        "favicon":"<i class='fa-search fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Robotics Engineer",
+        "description": "Design, build, and program robots for various applications, from manufacturing to healthcare.",
+        "favicon":"<i class='fa-shield-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "IoT Developer",
+        "description": "Develop solutions for the Internet of Things, connecting devices and systems for smarter environments.",
+        "favicon":"<i class='fa-headset fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Product Manager",
+        "description": "Oversee the development and lifecycle of products, balancing business goals with user needs.",
+        "favicon":"<i class='fa-microchip fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Digital Marketer",
+        "description": "Promote products and services online through SEO, content marketing, social media, and more.",
+        "favicon":"<i class='fa-cogs fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "SEO Specialist",
+        "description": "Optimize websites to rank higher in search engine results, driving organic traffic.",
+        "favicon":"<i class='fa-code-branch fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Site Reliability Engineer (SRE)",
+        "description": "Ensure the reliability and scalability of software systems through monitoring and automation.",
+        "favicon":"<i class='fa-tachometer-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Ethical Hacker",
+        "description": "Identify and fix security vulnerabilities by simulating cyber attacks on systems.",
+        "favicon":"<i class='fa-chart-bar fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Big Data Engineer",
+        "description": "Design and manage big data infrastructure to process and analyze large data sets.",
+        "favicon":"<i class='fa-file-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "AR/VR Developer",
+        "description": "Create immersive augmented reality (AR) and virtual reality (VR) experiences.",
+        "favicon":"<i class='fa-spinner fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Software Tester (Manual and Automation)",
+        "description": "Test software applications to ensure they are free of bugs and meet requirements.",
+        "favicon":"<i class='fa-sync-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Artificial Intelligence Researcher",
+        "description": "Conduct research to advance the field of AI and develop innovative solutions.",
+        "favicon":"<i class='fa-globe-americas fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Mobile Game Developer",
+        "description": "Specialize in creating engaging games for mobile platforms like iOS and Android.",
+        "favicon":"<i class='fa-rocket fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Cloud Security Specialist",
+        "description": "Secure cloud-based systems and data from unauthorized access and threats.",
+        "favicon":"<i class='fa-cloud-upload-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Big Data Architect",
+        "description": "Design large-scale data processing systems that can handle massive volumes of information.",
+        "favicon":"<i class='fa-cogs fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Business Analyst",
+        "description": "Analyze business processes and systems to identify improvements and drive change.",
+        "favicon":"<i class='fa-cogs fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Technical Writer",
+        "description": "Create clear, concise documentation for technical products and processes.",
+        "favicon":"<i class='fa-project-diagram fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Scrum Master",
+        "description": "Facilitate Agile development processes and ensure the team follows Scrum practices.",
+        "favicon":"<i class='fa-laptop-code fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Agile Coach",
+        "description": "Guide teams in adopting Agile methodologies to improve productivity and collaboration.",
+        "favicon":"<i class='fa-file-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "DevSecOps Engineer",
+        "description": "Integrate security practices into the DevOps pipeline to ensure secure software delivery.",
+        "favicon":"<i class='fa-search fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Web3 Developer",
+        "description": "Develop decentralized applications and smart contracts using blockchain technology.",
+        "favicon":"<i class='fa-robot fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Data Engineer",
+        "description": "Build and maintain the architecture that enables data processing and analysis.",
+        "favicon":"<i class='fa-puzzle-piece fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "BI (Business Intelligence) Developer",
+        "description": "Create systems that gather, store, and analyze business data to support decision-making.",
+        "favicon":"<i class='fa-cloud fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "E-commerce Developer",
+        "description": "Develop and manage online stores and digital shopping experiences.",
+        "favicon":"<i class='fa-box-open fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Penetration Tester",
+        "description": "Perform authorized tests on systems to identify security vulnerabilities.",
+        "favicon":"<i class='fa-cart-plus fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Quantum Computing Researcher",
+        "description": "Explore the potential of quantum computing and develop new algorithms and technologies.",
+        "favicon":"<i class='fa-shield-alt fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "SaaS (Software as a Service) Developer",
+        "description": "Develop cloud-based software applications that are delivered as a service to users.",
+        "favicon":"<i class='fa-lock fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "ERP Consultant",
+        "description": "Implement and optimize enterprise resource planning (ERP) systems for organizations.",
+        "favicon":"<i class='fa-cogs fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "Digital Transformation Specialist",
+        "description": "Help businesses integrate digital technologies into all aspects of their operations.",
+        "favicon":"<i class='fa-wrench fa'></i>",
+        "compleated":false
+    },
+    {
+        "title": "IT Project Manager",
+        "description": "Manage IT projects, ensuring they are completed on time, within scope, and on budget.",
+        "favicon":"<i class='fa-tachometer-alt fa'></i>",
+        "compleated":false
+    }
+]
